@@ -104,5 +104,12 @@ describe('Counter component', () => {
 
   it('shows a warning once we hit the lower limit of the counter', () => {
     // implement
+    const decButton = tools.queryByTestId('decButton');
+
+    for(let i = 0; i <7; i++){
+      rtl.fireEvent.click(decButton);
+    }
+
+    expect(tools.queryByTestId('lowerLimitH5')).toBeInTheDocument();
   });
 });
