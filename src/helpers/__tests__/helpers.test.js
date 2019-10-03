@@ -55,6 +55,8 @@ describe('personMaker', () => {
         name: 'peter',
         age: 4,
       });
+
+      expect(() => helpers.personMaker(4, 4)).toThrow();
   });
 
   // write more tests! <===========================================

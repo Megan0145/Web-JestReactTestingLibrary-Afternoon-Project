@@ -34,11 +34,13 @@ export function multiply(...numbers) {
 }
 
 export function personMaker(name, age) {
+  const nameIsString = () => typeof name == 'string';
+  if (nameIsString(name)){
   return {
     id: uuid(),
     name,
     age,
-  };
+  }} throw new Error('Name should be string');
 }
 
 // BUILD YOUR OWN UTILITY FUNCTIONS AND TEST THEM OUT!
