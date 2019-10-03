@@ -50,8 +50,25 @@ describe('Counter component', () => {
     expect(tools.queryByText(/-2/)).toBeInTheDocument();
   });
 
-  it('can reset the count clicking rest', () => {
+  it('can reset the count clicking reset', () => {
     // implement
+    const incButton = tools.queryByTestId('incButton');
+    const decButton = tools.queryByTestId('decButton');
+    const resetButton = tools.queryByTestId('resetButton');
+
+    rtl.fireEvent.click(incButton);
+    rtl.fireEvent.click(incButton);
+    expect(tools.queryByText(/2/)).toBeInTheDocument();
+
+    rtl.fireEvent.click(resetButton);
+    expect(tools.queryByText(/0/)).toBeInTheDocument();
+
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    expect(tools.queryByText(/-2/)).toBeInTheDocument();
+
+    rtl.fireEvent.click(resetButton);
+    expect(tools.queryByText(/0/)).toBeInTheDocument();
   });
 
   it('prevents the count from going over an upper limit', () => {
