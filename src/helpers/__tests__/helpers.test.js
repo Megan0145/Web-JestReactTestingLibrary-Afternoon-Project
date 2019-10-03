@@ -42,6 +42,9 @@ describe('multiply', () => {
   it('throws if args not of type num', () => {
     expect(() => helpers.multiply('1', '2')).toThrow();
   });
+  it('returns correct result if num args > 2', () => {
+    expect(helpers.multiply(2,2,2)).toBe(8);
+  })
 });
 
 describe('personMaker', () => {
