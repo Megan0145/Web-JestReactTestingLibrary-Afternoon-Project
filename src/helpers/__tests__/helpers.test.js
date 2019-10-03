@@ -55,9 +55,10 @@ describe('personMaker', () => {
         name: 'peter',
         age: 4,
       });
-
-      expect(() => helpers.personMaker(4, 4)).toThrow();
-  });
+    });
+   it('expects name arg to be a string', () => {
+    expect(() => helpers.personMaker(4, 4)).toThrow();
+   })
 
   // write more tests! <===========================================
 });
