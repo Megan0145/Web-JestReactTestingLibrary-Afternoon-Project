@@ -17,11 +17,20 @@ export function sum(...numbers) {
   });
 }
 
-export function multiply(a, b) {
-  if (typeof a !== 'number' || typeof b !== 'number') {
+export function multiply(...numbers) {
+  const enoughArgs = numbers.length > 1;
+  if (!enoughArgs) return null;
+
+  const argNotNum = numbers.some(number => {
+    return typeof number !== 'number';
+  });
+
+  if (argNotNum) {
     throw new Error('numbers required');
   }
-  return a * b;
+  return numbers.reduce((acc, currentNumber) => {
+    return acc * currentNumber;
+  });
 }
 
 export function personMaker(name, age) {
