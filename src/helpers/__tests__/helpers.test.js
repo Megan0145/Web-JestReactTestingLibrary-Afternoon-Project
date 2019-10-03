@@ -28,17 +28,43 @@ describe('sum', () => {
 
 describe('multiply', () => {
   // write tests! <================================================
+  it('multiplies positive nums correctly', () => {
+    expect(helpers.multiply(2,2)).toBe(4);
+  });
+  it('multiplies negative nums correctly', () => {
+    expect(helpers.multiply(-2,2)).toBe(-4);
+    expect(helpers.multiply(-2, -2)).toBe(4);
+  });
+  it('returns null if fed no arguments/ fed only one argument', () => {
+    expect(helpers.multiply()).toBe(null);
+    expect(helpers.multiply(1)).toBe(null);
+  });
+  it('throws if args not of type num', () => {
+    expect(() => helpers.multiply('1', '2')).toThrow();
+  });
+  it('returns correct result if num args > 2', () => {
+    expect(helpers.multiply(2,2,2)).toBe(8);
+  })
 });
 
 describe('personMaker', () => {
   it('makes a person with name and age', () => {
-    expect(helpers.personMaker('peter', 4))
+    expect(helpers.personMaker('peter', 32))
       .toMatchObject({
         id: '123',
         name: 'peter',
-        age: 4,
+        age: 32,
       });
-  });
+    });
+   it('expects name arg to be a string', () => {
+    expect(() => helpers.personMaker(4, 19)).toThrow();
+   });
+   it('expects age arg to be a number', () => {
+    expect(() => helpers.personMaker('Peter', '4')).toThrow();
+   });
+   it('expects age arg to be > 18', () => {
+    expect(() => helpers.personMaker('Peter', 4)).toThrow();
+   })
 
   // write more tests! <===========================================
 });
