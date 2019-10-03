@@ -35,8 +35,9 @@ describe('multiply', () => {
     expect(helpers.multiply(-2,2)).toBe(-4);
     expect(helpers.multiply(-2, -2)).toBe(4);
   });
-  it('returns null if fed no arguments', () => {
+  it('returns null if fed no arguments/ fed only one argument', () => {
     expect(helpers.multiply()).toBe(null);
+    expect(helpers.multiply(1)).toBe(null);
   });
   it('throws if args not of type num', () => {
     expect(() => helpers.multiply('1', '2')).toThrow();
