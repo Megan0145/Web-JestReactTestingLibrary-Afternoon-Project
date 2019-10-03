@@ -20,17 +20,17 @@ export default function Counter({ user, countLimit }) {
   return (
     <div style={{ borderColor: 'red' }} className='component'>
       <h5>{user}&apos;s count:</h5>
-      <div data-testid='countDiv'>The count is {count}</div>
+      <div>The count is {count}</div>
       <button data-testid='incButton' onClick={increment}>increment</button>
       <button data-testid='decButton' onClick={decrement}>decrement</button>
       <button data-testid='resetButton' onClick={reset}>reset</button>
       {
         count === countLimit &&
-        <h5 style={{ color: 'red' }}>That's as high as {user}'s count will go</h5>
+        <h5 data-testid='upperLimitH5' style={{ color: 'red' }}>That's as high as {user}'s count will go</h5>
       }
       {
         count === -countLimit &&
-        <h5 style={{ color: 'red' }}>That's as low as {user}'s count will go</h5>
+        <h5 data-testid='lowerLimitH5' style={{ color: 'red' }}>That's as low as {user}'s count will go</h5>
       }
     </div>
   );

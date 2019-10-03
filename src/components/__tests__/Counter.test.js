@@ -85,7 +85,6 @@ describe('Counter component', () => {
   it('prevents the count from going under a lower limit', () => {
     // implement
     const decButton = tools.queryByTestId('decButton');
-    // const countDiv = tools.queryByTestId('countDiv');
 
     for(let i = 0; i <7; i++){
       rtl.fireEvent.click(decButton);
@@ -95,6 +94,12 @@ describe('Counter component', () => {
 
   it('shows a warning once we hit the upper limit of the counter', () => {
     // implement
+    const incButton = tools.queryByTestId('incButton');
+
+    for(let i = 0; i <7; i++){
+      rtl.fireEvent.click(incButton);
+    }
+    expect(tools.queryByTestId('upperLimitH5')).toBeInTheDocument();
   });
 
   it('shows a warning once we hit the lower limit of the counter', () => {
