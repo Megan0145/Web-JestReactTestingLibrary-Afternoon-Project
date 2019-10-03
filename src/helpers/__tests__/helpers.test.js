@@ -49,18 +49,21 @@ describe('multiply', () => {
 
 describe('personMaker', () => {
   it('makes a person with name and age', () => {
-    expect(helpers.personMaker('peter', 4))
+    expect(helpers.personMaker('peter', 32))
       .toMatchObject({
         id: '123',
         name: 'peter',
-        age: 4,
+        age: 32,
       });
     });
    it('expects name arg to be a string', () => {
-    expect(() => helpers.personMaker(4, 4)).toThrow();
+    expect(() => helpers.personMaker(4, 19)).toThrow();
    });
    it('expects age arg to be a number', () => {
     expect(() => helpers.personMaker('Peter', '4')).toThrow();
+   });
+   it('expects age arg to be > 18', () => {
+    expect(() => helpers.personMaker('Peter', 4)).toThrow();
    })
 
   // write more tests! <===========================================
